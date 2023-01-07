@@ -37,12 +37,10 @@ void	push_swap(char **argv, int argc)
 	t_list	*stack_a;
 	t_list	*stack_copy;
 	t_list	*stack_b;
-	int		x;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	stack_copy = NULL;
-	x = 0;
 	if (argc > 1)
 		check_args(argv, argc, &stack_a, &stack_copy);
 	if (iter_stack(&stack_a) == 1)

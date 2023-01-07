@@ -15,12 +15,10 @@
 void	sort_three_a(t_list **stack_a)
 {
 	t_list	*temp;
-	t_list	*tempn;
 
 	while (iter_stack(stack_a) != 1)
 	{
 		temp = *stack_a;
-		tempn = temp->next;
 		temp->before = ft_lstlast(*stack_a);
 		if (temp->before->content < temp->content)
 			reverse_stack_each(stack_a, 'a');
