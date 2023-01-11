@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_utils_list.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: juleslaisne <juleslaisne@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 14:49:08 by jlaisne           #+#    #+#             */
-/*   Updated: 2022/12/31 14:00:56 by jlaisne          ###   ########.fr       */
+/*   Updated: 2023/01/11 10:06:09 by juleslaisne      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_lstcheck(t_list *lst, int arg)
 	{
 		while (lst->next != NULL)
 		{
-			if (lst->content == arg && lst->next != NULL)
+			if (lst->next->content == arg && lst->next != NULL)
 				display_error();
 			lst = lst->next;
 		}

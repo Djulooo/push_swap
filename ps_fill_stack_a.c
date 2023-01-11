@@ -3,14 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ps_fill_stack_a.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: juleslaisne <juleslaisne@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:50:35 by jlaisne           #+#    #+#             */
-/*   Updated: 2022/12/31 15:12:44 by jlaisne          ###   ########.fr       */
+/*   Updated: 2023/01/11 10:05:26 by juleslaisne      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	new->next = *lst;
+	*lst = new;
+}
 
 void	check_args(char **argv, int argc,	\
 					t_list **stack, t_list **stack_c)
@@ -39,7 +45,7 @@ void	check_mult_args(char **argv, int argc,	\
 		arg = 0;
 		ft_atoi(argv[i], &arg);
 		ptr = ft_lstnew((int)arg);
-		ft_lstadd_back(stack, ptr);
+		ft_lstadd_front(stack, ptr);
 		ft_lstcheck(*stack, arg);
 		cpy = ft_lstnew((int)arg);
 		ft_lstadd_back(stack_c, cpy);
@@ -64,7 +70,7 @@ void	check_single_arg(char **argv, t_list *ptr, \
 		ft_atoi(tab[i], &arg);
 		free(tab[i]);
 		ptr = ft_lstnew((int)arg);
-		ft_lstadd_back(stack, ptr);
+		ft_lstadd_front(stack, ptr);
 		ft_lstcheck(*stack, arg);
 		cpy = ft_lstnew((int)arg);
 		ft_lstadd_back(stack_c, cpy);
