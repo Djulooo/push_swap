@@ -6,7 +6,7 @@
 /*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:50:35 by jlaisne           #+#    #+#             */
-/*   Updated: 2023/01/16 10:00:00 by jlaisne          ###   ########.fr       */
+/*   Updated: 2023/01/16 11:43:01 by jlaisne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ void	check_mult_args(char **argv, int argc,	\
 	while (i < argc)
 	{
 		arg = 0;
-		ft_atoi(argv[i], &arg);
+		ft_atoi(argv[i], &arg, *stack, *stack_c);
 		ptr = ft_lstnew((int)arg);
 		ft_lstadd_back(stack, ptr);
-		ft_lstcheck(*stack, arg);
+		ft_lstcheck(*stack, *stack_c, arg);
 		cpy = ft_lstnew((int)arg);
 		ft_lstadd_back(stack_c, cpy);
 		i++;
@@ -61,11 +61,11 @@ void	check_single_arg(char **argv, t_list *ptr, \
 	while (tab[i])
 	{
 		arg = 0;
-		ft_atoi(tab[i], &arg);
+		ft_atoi(tab[i], &arg, *stack, *stack_c);
 		free(tab[i]);
 		ptr = ft_lstnew((int)arg);
 		ft_lstadd_back(stack, ptr);
-		ft_lstcheck(*stack, arg);
+		ft_lstcheck(*stack, *stack_c, arg);
 		cpy = ft_lstnew((int)arg);
 		ft_lstadd_back(stack_c, cpy);
 		i++;
@@ -73,8 +73,10 @@ void	check_single_arg(char **argv, t_list *ptr, \
 	free(tab);
 }
 
-void	display_error(void)
+void	display_error(t_list *stack, t_list *stack_c)
 {
 	ft_putstr_fd("Error\n", 1);
+	free_list(stack);
+	free_list(stack_c);
 	exit(EXIT_FAILURE);
 }

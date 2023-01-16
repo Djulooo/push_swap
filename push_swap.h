@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juleslaisne <juleslaisne@student.42.fr>    +#+  +:+       +#+        */
+/*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:58:16 by jlaisne           #+#    #+#             */
-/*   Updated: 2023/01/11 10:06:36 by juleslaisne      ###   ########.fr       */
+/*   Updated: 2023/01/16 11:39:47 by jlaisne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,18 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 /* ---- utils ---- */
 void	ft_putstr_fd(char *s, int fd);
-void	ft_atoi(const char *s, long *arg);
+void	ft_atoi(const char *s, long *arg, t_list *lst, t_list *lst_c);
 
 /* ---- list utils ---- */
+void	free_list(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstnew(int content);
-void	ft_lstcheck(t_list *lst, int arg);
+void	ft_lstcheck(t_list *lst, t_list *lst_c, int arg);
 int		ft_lstlen(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 
 /* ---- check error && fill stack A ---- */
-void	display_error(void);
+void	display_error(t_list *stack, t_list *stack_c);
 void	check_args(char **argv, int argc, t_list **stack, t_list **stack_c);
 void	check_mult_args(char **argv, int argc, \
 						t_list **stack, t_list **stack_c);

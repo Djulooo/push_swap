@@ -6,7 +6,7 @@
 /*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 14:49:08 by jlaisne           #+#    #+#             */
-/*   Updated: 2023/01/16 10:00:15 by jlaisne          ###   ########.fr       */
+/*   Updated: 2023/01/16 11:38:59 by jlaisne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_list	*ft_lstnew(int content)
 	return (ptr);
 }
 
-void	ft_lstcheck(t_list *lst, int arg)
+void	ft_lstcheck(t_list *lst, t_list *lst_c, int arg)
 {
 	if (lst == NULL)
 		return ;
@@ -33,7 +33,7 @@ void	ft_lstcheck(t_list *lst, int arg)
 		while (lst->next != NULL)
 		{
 			if (lst->content == arg && lst->next != NULL)
-				display_error();
+				display_error(lst, lst_c);
 			lst = lst->next;
 		}
 	}

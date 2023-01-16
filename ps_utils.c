@@ -6,19 +6,19 @@
 /*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:57:43 by jlaisne           #+#    #+#             */
-/*   Updated: 2022/12/31 14:19:59 by jlaisne          ###   ########.fr       */
+/*   Updated: 2023/01/16 11:40:22 by jlaisne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	check_int_max(long *arg)
+static void	check_int_max(long *arg, t_list *lst, t_list *lst_c)
 {
 	if (*arg > 2147483647 || *arg < -2147483648)
-		display_error();
+		display_error(lst, lst_c);
 }
 
-void	ft_atoi(const char *s, long *arg)
+void	ft_atoi(const char *s, long *arg, t_list *lst, t_list *lst_c)
 {
 	int			i;
 	int			sign;
@@ -37,11 +37,11 @@ void	ft_atoi(const char *s, long *arg)
 	while (s[i] >= '0' && s[i] <= '9')
 	{
 		*arg = (*arg * 10) + (s[i] - 48);
-		check_int_max(arg);
+		check_int_max(arg, lst, lst_c);
 		i++;
 	}
 	if ((s[i] < '0' || s[i] > '9') && s[i] != '\0')
-		display_error();
+		display_error(lst, lst_c);
 	*arg = *arg * sign;
 }
 

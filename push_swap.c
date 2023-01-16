@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juleslaisne <juleslaisne@student.42.fr>    +#+  +:+       +#+        */
+/*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 11:26:36 by jlaisne           #+#    #+#             */
-/*   Updated: 2023/01/11 10:06:33 by juleslaisne      ###   ########.fr       */
+/*   Updated: 2023/01/16 11:42:44 by jlaisne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,19 @@ void	sort_copy(t_list **stack_c)
 	}
 }
 
+void	free_list(t_list *lst)
+{
+	t_list	*temp;
+
+	while (lst)
+	{
+		temp = lst->next;
+		free(lst);
+		lst = temp;
+	}
+	free(lst);
+}
+
 void	push_swap(char **argv, int argc)
 {
 	t_list	*stack_a;
@@ -44,11 +57,17 @@ void	push_swap(char **argv, int argc)
 	if (argc > 1)
 		check_args(argv, argc, &stack_a, &stack_copy);
 	if (iter_stack(&stack_a) == 1)
+	{
+		free_list(stack_a);
+		free_list(stack_copy);
 		exit(EXIT_SUCCESS);
+	}
 	else
 	{
 		sort_copy(&stack_copy);
 		sort_stack(&stack_a, &stack_b, &stack_copy);
+		free_list(stack_a);
+		free_list(stack_copy);
 		exit(EXIT_SUCCESS);
 	}
 }
