@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: juleslaisne <juleslaisne@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:58:16 by jlaisne           #+#    #+#             */
-/*   Updated: 2023/01/16 11:39:47 by jlaisne          ###   ########.fr       */
+/*   Updated: 2023/01/17 23:35:39 by juleslaisne      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+#include <stdio.h>
 
 typedef struct s_list
 {
@@ -35,7 +36,7 @@ void	ft_atoi(const char *s, long *arg, t_list *lst, t_list *lst_c);
 /* ---- list utils ---- */
 void	free_list(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-t_list	*ft_lstnew(int content);
+t_list	*ft_lstnew(int content, t_list *lst, t_list *lst_c);
 void	ft_lstcheck(t_list *lst, t_list *lst_c, int arg);
 int		ft_lstlen(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
@@ -60,7 +61,7 @@ void	reverse_stack_both(t_list **stack_a, t_list **stack_b);
 /* ---- push swap ---- */
 void	push_swap(char **argv, int argc);
 int		iter_stack_a(t_list **stack_a, t_list **stack_b);
-int		iter_stack(t_list **stack);
+int		iter_stack(t_list **stack, t_list **stack_c);
 void	sort_stack(t_list **stack_a, t_list **stack_b, t_list **stack_c);
 void	clear_stack_b(t_list **stack_a, t_list **stack_b);
 void	sort_copy(t_list **stack_c);
@@ -70,7 +71,7 @@ int		get_index_last(t_list **stack_a, t_list **stack_c);
 int		find_min(t_list **stack_a);
 
 /* ---- push swap small list---- */
-void	sort_three_a(t_list **stack_a);
+void	sort_three_a(t_list **stack_a, t_list **stack_c);
 void	sort_five_a(t_list **stack_a, t_list **stack_b, \
 					t_list **stack_c, int len);
 void	stack_push_min(t_list **stack_a, t_list **stack_b, \

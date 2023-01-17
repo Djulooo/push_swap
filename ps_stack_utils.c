@@ -3,28 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ps_stack_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: juleslaisne <juleslaisne@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 18:22:45 by jlaisne           #+#    #+#             */
-/*   Updated: 2022/12/31 14:00:32 by jlaisne          ###   ########.fr       */
+/*   Updated: 2023/01/17 23:36:26 by juleslaisne      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	iter_stack(t_list **stack)
+int	iter_stack(t_list **stack, t_list **stack_c)
 {
 	t_list	*temp;
 
-	temp = *stack;
-	while (temp->next != NULL)
+	if (*stack)
 	{
-		if (temp->content > temp->next->content)
-			break ;
-		temp = temp->next;
+		temp = *stack;
+		while (temp->next != NULL)
+		{
+			if (temp->content > temp->next->content)
+				break ;
+			temp = temp->next;
+		}
+		if (temp->next == NULL)
+			return (1);
+		return (0);
 	}
-	if (temp->next == NULL)
-		return (1);
+	else
+		display_error(*stack, *stack_c);
 	return (0);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_fill_stack_a.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: juleslaisne <juleslaisne@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:50:35 by jlaisne           #+#    #+#             */
-/*   Updated: 2023/01/16 11:43:01 by jlaisne          ###   ########.fr       */
+/*   Updated: 2023/01/17 23:28:28 by juleslaisne      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ void	check_mult_args(char **argv, int argc,	\
 	{
 		arg = 0;
 		ft_atoi(argv[i], &arg, *stack, *stack_c);
-		ptr = ft_lstnew((int)arg);
+		ptr = ft_lstnew((int)arg, *stack, *stack_c);
 		ft_lstadd_back(stack, ptr);
 		ft_lstcheck(*stack, *stack_c, arg);
-		cpy = ft_lstnew((int)arg);
+		cpy = ft_lstnew((int)arg, *stack, *stack_c);
 		ft_lstadd_back(stack_c, cpy);
 		i++;
 	}
@@ -58,15 +58,17 @@ void	check_single_arg(char **argv, t_list *ptr, \
 	arg = 0;
 	i = 0;
 	tab = ft_split(argv[1], ' ');
+	if (!tab)
+		display_error(*stack, *stack_c);
 	while (tab[i])
 	{
 		arg = 0;
 		ft_atoi(tab[i], &arg, *stack, *stack_c);
 		free(tab[i]);
-		ptr = ft_lstnew((int)arg);
+		ptr = ft_lstnew((int)arg, *stack, *stack_c);
 		ft_lstadd_back(stack, ptr);
 		ft_lstcheck(*stack, *stack_c, arg);
-		cpy = ft_lstnew((int)arg);
+		cpy = ft_lstnew((int)arg, *stack, *stack_c);
 		ft_lstadd_back(stack_c, cpy);
 		i++;
 	}

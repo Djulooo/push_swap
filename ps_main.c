@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_main.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: juleslaisne <juleslaisne@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 11:26:36 by jlaisne           #+#    #+#             */
-/*   Updated: 2023/01/17 18:57:25 by jlaisne          ###   ########.fr       */
+/*   Updated: 2023/01/17 23:34:52 by juleslaisne      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	push_swap(char **argv, int argc)
 	stack_copy = NULL;
 	if (argc > 1)
 		check_args(argv, argc, &stack_a, &stack_copy);
-	if (iter_stack(&stack_a) == 1)
+	if (iter_stack(&stack_a, &stack_copy) == 1)
 	{
 		free_list(stack_a);
 		free_list(stack_copy);

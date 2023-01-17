@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_sort_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: juleslaisne <juleslaisne@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 18:41:08 by jlaisne           #+#    #+#             */
-/*   Updated: 2023/01/02 14:38:33 by jlaisne          ###   ########.fr       */
+/*   Updated: 2023/01/17 23:36:48 by juleslaisne      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	sort_stack(t_list **stack_a, t_list **stack_b, t_list **stack_c)
 
 	len = ft_lstlen(*stack_a);
 	if (len < 4)
-		sort_three_a(stack_a);
+		sort_three_a(stack_a, stack_c);
 	else if (len <= 5)
 		sort_five_a(stack_a, stack_b, stack_c, len);
 	else
@@ -40,7 +40,7 @@ void	sort_large_stack(t_list **stack_a, t_list **stack_b, \
 		max_index_bits >>= 1;
 		i++;
 	}
-	while (most_sig_bit++ < i && iter_stack(stack_a) != 1)
+	while (most_sig_bit++ < i && iter_stack(stack_a, stack_c) != 1)
 	{
 		while (len > 0)
 		{

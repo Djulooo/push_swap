@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ps_utils_list.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: juleslaisne <juleslaisne@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 14:49:08 by jlaisne           #+#    #+#             */
-/*   Updated: 2023/01/16 11:38:59 by jlaisne          ###   ########.fr       */
+/*   Updated: 2023/01/17 23:29:06 by juleslaisne      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew(int content)
+t_list	*ft_lstnew(int content, t_list *lst, t_list *lst_c)
 {
 	t_list	*ptr;
 
 	ptr = (void *)malloc(sizeof(t_list));
 	if (!ptr)
-		return (NULL);
+		display_error(lst, lst_c);
 	ptr->content = content;
 	ptr->next = NULL;
 	return (ptr);

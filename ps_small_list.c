@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ps_small_list.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: juleslaisne <juleslaisne@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:57:56 by jlaisne           #+#    #+#             */
-/*   Updated: 2022/12/31 15:07:59 by jlaisne          ###   ########.fr       */
+/*   Updated: 2023/01/17 23:35:59 by juleslaisne      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three_a(t_list **stack_a)
+void	sort_three_a(t_list **stack_a, t_list **stack_c)
 {
 	t_list	*temp;
 
-	while (iter_stack(stack_a) != 1)
+	while (iter_stack(stack_a, stack_c) != 1)
 	{
 		temp = *stack_a;
 		temp->before = ft_lstlast(*stack_a);
@@ -41,7 +41,7 @@ void	sort_five_a(t_list **stack_a, t_list **stack_b, \
 		stack_push_min(stack_a, stack_b, stack_c, min);
 		len = ft_lstlen(*stack_a);
 	}	
-	sort_three_a(stack_a);
+	sort_three_a(stack_a, stack_c);
 	swap_top_stack(*stack_b, 'b');
 	clear_stack_b(stack_a, stack_b);
 }
