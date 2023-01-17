@@ -1,16 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ps_main.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 11:26:36 by jlaisne           #+#    #+#             */
-/*   Updated: 2023/01/16 11:42:44 by jlaisne          ###   ########.fr       */
+/*   Updated: 2023/01/17 18:57:25 by jlaisne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	main(int argc, char **argv)
+{
+	if (argc > 1)
+		push_swap(argv, argc);
+	return (0);
+}
 
 void	sort_copy(t_list **stack_c)
 {
@@ -72,8 +79,3 @@ void	push_swap(char **argv, int argc)
 	}
 }
 
-int	main(int argc, char **argv)
-{
-	if (argc > 1)
-		push_swap(argv, argc);
-}
