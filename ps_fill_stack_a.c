@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_fill_stack_a.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juleslaisne <juleslaisne@student.42.fr>    +#+  +:+       +#+        */
+/*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:50:35 by jlaisne           #+#    #+#             */
-/*   Updated: 2023/01/17 23:28:28 by juleslaisne      ###   ########.fr       */
+/*   Updated: 2023/01/18 12:49:41 by jlaisne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	check_single_arg(char **argv, t_list *ptr, \
 
 void	display_error(t_list *stack, t_list *stack_c)
 {
-	ft_putstr_fd("Error\n", 1);
+	ft_putstr_fd("Error\n", 2);
 	free_list(stack);
 	free_list(stack_c);
 	exit(EXIT_FAILURE);
