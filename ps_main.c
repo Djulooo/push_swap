@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_main.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juleslaisne <juleslaisne@student.42.fr>    +#+  +:+       +#+        */
+/*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 11:26:36 by jlaisne           #+#    #+#             */
-/*   Updated: 2023/01/17 23:34:52 by juleslaisne      ###   ########.fr       */
+/*   Updated: 2023/01/24 11:16:27 by jlaisne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,3 @@ void	push_swap(char **argv, int argc)
 		exit(EXIT_SUCCESS);
 	}
 }
-
