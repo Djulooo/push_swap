@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlaisne <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: juleslaisne <juleslaisne@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:58:16 by jlaisne           #+#    #+#             */
-/*   Updated: 2023/01/24 11:16:47 by jlaisne          ###   ########.fr       */
+/*   Updated: 2023/02/01 10:28:44 by juleslaisne      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,6 @@ int		find_min(t_list **stack_a);
 void	sort_three_a(t_list **stack_a, t_list **stack_c);
 void	sort_five_a(t_list **stack_a, t_list **stack_b, \
 					t_list **stack_c, int len);
-void	stack_push_min(t_list **stack_a, t_list **stack_b, \
-					t_list **stack_c, int min);
 void	sort_large_stack(t_list **stack_a, t_list **stack_b, \
 						t_list **stack_c, int len);
 

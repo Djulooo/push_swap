@@ -6,11 +6,12 @@
 /*   By: juleslaisne <juleslaisne@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:57:56 by jlaisne           #+#    #+#             */
-/*   Updated: 2023/01/17 23:35:59 by juleslaisne      ###   ########.fr       */
+/*   Updated: 2023/02/01 10:58:03 by juleslaisne      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "stdio.h"
 
 void	sort_three_a(t_list **stack_a, t_list **stack_c)
 {
@@ -30,6 +31,44 @@ void	sort_three_a(t_list **stack_a, t_list **stack_c)
 	}
 }
 
+static void	rev_rot_five(t_list **stack_a, int min)
+{
+	if (min == (*stack_a)->content)
+		return ;
+	if (min == (*stack_a)->next->content)
+		rotate_stack_each(stack_a, 'a');
+	if (min == (*stack_a)->next->next->content)
+	{
+		rotate_stack_each(stack_a, 'a');
+		rotate_stack_each(stack_a, 'a');
+	}
+	else
+	{
+		while ((*stack_a)->content != min)
+			reverse_stack_each(stack_a, 'a');
+	}
+}
+
+static void	stack_push_min(t_list **stack_a, t_list **stack_b, int min)
+{
+	if (ft_lstlen(*stack_a) == 4)
+	{
+		if (min == (*stack_a)->content || min == (*stack_a)->next->content)
+		{
+			while ((*stack_a)->content != min)
+				rotate_stack_each(stack_a, 'a');
+		}
+		else
+		{
+			while ((*stack_a)->content != min)
+				reverse_stack_each(stack_a, 'a');
+		}
+	}
+	else
+		rev_rot_five(stack_a, min);
+	push_stack_top(stack_b, stack_a, 'b');
+}
+
 void	sort_five_a(t_list **stack_a, t_list **stack_b, \
 					t_list **stack_c, int len)
 {
@@ -38,39 +77,9 @@ void	sort_five_a(t_list **stack_a, t_list **stack_b, \
 	while (len > 3)
 	{
 		min = find_min(stack_a);
-		stack_push_min(stack_a, stack_b, stack_c, min);
+		stack_push_min(stack_a, stack_b, min);
 		len = ft_lstlen(*stack_a);
 	}	
 	sort_three_a(stack_a, stack_c);
-	swap_top_stack(*stack_b, 'b');
 	clear_stack_b(stack_a, stack_b);
-}
-
-void	stack_push_min(t_list **stack_a, t_list **stack_b, \
-						t_list **stack_c, int min)
-{
-	t_list	*temp;
-
-	temp = *stack_c;
-	if (ft_lstlen(*stack_a) == 4)
-	{
-		if (min == (*stack_a)->content || min == (*stack_a)->next->content)
-		{
-			while ((*stack_a)->content != ft_lstlast(*stack_c)->content)
-				rotate_stack_each(stack_a, 'a');
-		}
-		else
-		{
-			while ((*stack_a)->content != ft_lstlast(*stack_c)->content)
-				reverse_stack_each(stack_a, 'a');
-		}
-	}
-	else
-	{
-		while (temp->next->next)
-			temp = temp->next;
-		while ((*stack_a)->content != temp->content)
-			rotate_stack_each(stack_a, 'a');
-	}
-	push_stack_top(stack_b, stack_a, 'b');
 }

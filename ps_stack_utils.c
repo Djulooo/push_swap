@@ -6,7 +6,7 @@
 /*   By: juleslaisne <juleslaisne@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 18:22:45 by jlaisne           #+#    #+#             */
-/*   Updated: 2023/01/17 23:36:26 by juleslaisne      ###   ########.fr       */
+/*   Updated: 2023/02/01 10:35:42 by juleslaisne      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	find_min(t_list **stack_a)
 
 	temp = *stack_a;
 	min = temp->content;
-	while (temp->next)
+	while (temp)
 	{
 		if (min > temp->content)
 			min = temp->content;
